@@ -1,0 +1,24 @@
+{
+  "name": "apilivros",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mateusadd/apiLivros.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mateusadd/apiLivros/issues"
+  },
+  "homepage": "https://github.com/mateusadd/apiLivros#readme",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "express": "^4.18.1",
+    "mysql2": "^2.3.3"
+  }
+}
