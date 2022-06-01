@@ -9,14 +9,22 @@ async function conectar() {
     }
 
     //mysql://usuario:senha@servidor:porta/banco
-    const stringConexao = 'mysql://root:@localhost:3306/livraria'
+    const strConexao = 'mysql://root:@localhost:3306/livraria'
 
-    const conexao = await mysql.createConnection(stringConexao)
+    const conexao = await mysql.createConnection(strConexao)
     global.conexao = conexao
     return global.conexao
 
 }
 
+async function listarLivros() {
+
+    const con = await conectar()
+    const [livros] = await con.query('select * from livros;')
+    return livros
+
+}
+
 conectar()
 
-module.exports = {}
+module.exports = { listarLivros }

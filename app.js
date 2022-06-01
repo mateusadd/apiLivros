@@ -20,6 +20,13 @@ router.get('/', (req,res) => {
 
 })
 
+router.get('/listaLivros', async (req,res) => {
+
+    const resultado = await global.db.listarLivros()
+    res.json( resultado )
+
+})
+
 app.use('/', router)
 app.listen(port)
 console.log('API funcionando!')
