@@ -20,11 +20,30 @@ async function conectar() {
 async function listarLivros() {
 
     const con = await conectar()
-    const [livros] = await con.query('select * from livros;')
+    const sql = 'select * from livros;'
+    const [livros] = await con.query(sql)
     return livros
+
+}
+
+async function buscarLivro(id) {
+
+    const conn = await conectar()
+    const sql = 'select * from livros where livcodigo=?;'
+    const [livro] = await conn.query(sql, [id])
+
+    return livro && livro.length>0 ? livro[0] : {}
+
+}
+
+async function inserirLivro(livro) {
+
+    const conn = await conectar()
+    const sql = 'insert into livros (livtitulo, livano, gencodigo) values (?, ?, ?);'
+    return await conn.query(sql, [livro.titulo, livro.ano, livro.genero])
 
 }
 
 conectar()
 
-module.exports = { listarLivros }
+module.exports = { listarLivros, buscarLivro, inserirLivro }

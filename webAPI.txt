@@ -1,0 +1,30 @@
+http/https
+
+request  - browser/app/robot
+response - server
+
+get   - GET /listaLivros
+
+post  - POST /novoLivro
+	{"titulo":"O Senhor dos Anéis",
+	 "autor":"JRR Tolkien"}
+
+put   - PUT /alteraLivro
+	{"codigo":123,
+	 "titulo":"O Senhor dos Anéis",
+	 "autor":"JRR Tolkien"}
+
+patch - PATCH /alteraLivro
+	{"codigo":123,
+	 "titulo":"The Lord of the Rings"}
+
+delete - DELETE /apagaLivro/123
+
+
+-----------------------
+json
+{"codigo":123,
+ "titulo":"The Lord of the Rings"}
+
+x-www-urlencoded
+?codigo=123&titulo=The+Lord+of+the+Rings
